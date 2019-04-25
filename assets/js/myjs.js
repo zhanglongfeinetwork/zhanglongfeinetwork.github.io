@@ -395,7 +395,7 @@ import {diary} from "../stroe.js";
                 dom.navfooter.html(`
                     <ul class="actions">
                     <!--<li><a href="#" class="button special">Special</a></li>-->
-                    <li><a href="index.html" class="page">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
+                    <li><a href="index.html" class="button">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
                 </ul>
                 `)
             }else {
@@ -403,25 +403,25 @@ import {diary} from "../stroe.js";
                 if(res.diaryId == 0 ) {
                     dom.navfooter.html(`
                 <ul class="actions">
-                    <li><a href="index.html" class="page">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
-                    <li><a href="generic.html?diaryId=${res.diaryId+1}&type=${res.type}" class="next">NEXT</a></li>
+                    <li><a href="index.html" class="button">&nbsp;&nbsp;Back&nbsp;&nbsp;</a></li>
+                    <li><a href="generic.html?diaryId=${res.diaryId+1}&type=${res.type}" class="button">NEXT</a></li>
                 </ul>
                 `)
                 } else if(res.diaryId+1 == mydiaryarr.length){
                     dom.navfooter.html(`
                 <ul class="actions">
-                    <li><a href="generic.html?diaryId=${res.diaryId-1}&type=${res.type}" class="previous">PREV</a></li>
+                    <li><a href="generic.html?diaryId=${res.diaryId-1}&type=${res.type}" class="button">PREV</a></li>
                     <!--<li><a href="#" class="button special">Special</a></li>-->
-                    <li><a href="index.html" class="page">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
+                    <li><a href="index.html" class="button">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
                 </ul>
                 `)
                 }else {
                     dom.navfooter.html(`
                 <ul class="actions">
-                    <li><a href="generic.html?diaryId=${res.diaryId-1}&type=${res.type}" class="previous">PREV</a></li>
+                    <li><a href="generic.html?diaryId=${res.diaryId-1}&type=${res.type}" class="button">PREV</a></li>
                     <!--<li><a href="#" class="button special">Special</a></li>-->
-                    <li><a href="index.html" class="page">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
-                    <li><a href="generic.html?diaryId=${res.diaryId+1}&type=${res.type}" class="next">NEXT</a></li>
+                    <li><a href="index.html" class="button">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
+                    <li><a href="generic.html?diaryId=${res.diaryId+1}&type=${res.type}" class="button">NEXT</a></li>
                 </ul>
                 `)
                 }
