@@ -36,33 +36,33 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="463" />
+          <entry key="js" value="469" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="463" />
+          <entry key="JavaScript" value="469" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/stroe.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="550" selection-start-line="550" selection-end-line="554" selection-end-column="13" />
+            <state relative-caret-position="749">
+              <caret line="561" column="38" selection-start-line="561" selection-start-column="38" selection-end-line="561" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2276">
-              <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            <state relative-caret-position="70">
+              <caret line="105" column="44" lean-forward="true" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -180,12 +180,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556182419879</updated>
-      <workItem from="1556182423658" duration="7662000" />
+      <workItem from="1556182423658" duration="8615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7662000" />
+    <option name="totallyTimeSpent" value="8615000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -217,13 +217,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2276">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elements.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
@@ -261,8 +254,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/stroe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="550" selection-start-line="550" selection-end-line="554" selection-end-column="13" />
+        <state relative-caret-position="749">
+          <caret line="561" column="38" selection-start-line="561" selection-start-column="38" selection-end-line="561" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="105" column="44" lean-forward="true" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
         </state>
       </provider>
     </entry>
