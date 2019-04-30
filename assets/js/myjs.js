@@ -365,10 +365,10 @@ import {diary} from "../stroe.js";
                 diaryList = data.Y2018
                 totalPage = diaryList.length
             }
-            // else if (diaryName == '2019') {
-            //     diaryList = data.Y2019
-            //     totalPage = diaryList.length
-            // }
+            else if (diaryName == '2019') {
+                diaryList = data.Y2019
+                totalPage = diaryList.length
+            }
             else {
                 return alert('暂未完工')
             }
