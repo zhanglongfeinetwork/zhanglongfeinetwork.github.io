@@ -8,6 +8,7 @@ import {diary} from "../stroe.js";
         diary: null,
         Y2017: diary.Y2017,
         Y2018: diary.Y2018,
+        Y2019: diary.Y2019,
         All: diary.All,
         news: diary.news,
         page: {
