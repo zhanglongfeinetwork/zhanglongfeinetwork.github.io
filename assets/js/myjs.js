@@ -82,6 +82,7 @@ import {diary} from "../stroe.js";
             let i = 0, imgnum = 2, l = diary.length, html = ``, titlearr
             diaryLoop1:
                 for (i; i < l; i++, i) {
+                    //随机照片
                     imgnum = Math.floor(Math.random() * (28 - 2) + 2)
                     let title = _do.titleAddBr(diary[i].title)
                     html += `
