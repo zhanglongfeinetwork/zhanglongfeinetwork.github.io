@@ -70,8 +70,8 @@
 
                             $bg.css('transform', 'matrix(1,0,0,1,0,' + (pos * intensity) + ')');
                         }
-                        // throttle(bar)()
-						bar()
+                        throttle(bar)()
+						// bar()
 
 					});
 

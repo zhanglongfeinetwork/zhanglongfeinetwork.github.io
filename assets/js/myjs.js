@@ -6,6 +6,7 @@ import {diary} from "../stroe.js";
 (function ($, diary, window) {
     let data = {
         diary: null,
+        Y2012: diary.Y2012,
         Y2017: diary.Y2017,
         Y2018: diary.Y2018,
         Y2019: diary.Y2019,
@@ -16,6 +17,7 @@ import {diary} from "../stroe.js";
             currentPage: 1,
             pageSize: 6,
         },
+        count:0,
         type: 'All'
     }
     let dom = {
@@ -355,24 +357,23 @@ import {diary} from "../stroe.js";
                     return dataArr.slice((currentPage - 1) * pageSize, currentPage * pageSize)
                 }
             }
-
-            if (diaryName == 'All') {
+            // console.log(diaryName);
+            if (diaryName == 'YAll') {
                 diaryList = data.All
                 totalPage = diaryList.length
-            } else if (diaryName == '2017') {
-                diaryList = data.Y2017
-                totalPage = diaryList.length
-
-            } else if (diaryName == '2018') {
-                diaryList = data.Y2018
-                totalPage = diaryList.length
-            }
-            else if (diaryName == '2019') {
-                diaryList = data.Y2019
-                totalPage = diaryList.length
-            }
-            else {
+                // debugger
+            }else{
+              var isFind = false
+              for(var key in data){
+                if(diaryName == key){
+                  diaryList = data[key]
+                  totalPage = data[key].length
+                  isFind = true
+                }
+              }
+              if(!isFind){
                 return alert('暂未完工')
+              }
             }
             diaryList = datatransform(diaryList)
             return {
@@ -381,17 +382,25 @@ import {diary} from "../stroe.js";
             }
         }
     }
-
+    function processArr(oldArr) {
+      return [...oldArr].reverse()
+    }
     function render() {
         let html
         const news = data.news
         // 详情页
         if (window.location.href.indexOf('generic') > 0) {
             let res = _do.getQueryString()
-
+            console.log(res);
             let mydiaryarr = api.getDiaryData({pageSize: 'all', type: res.type}).diaryList
             let diarydata = _do.diaryDatahanlder(res)
             let title = _do.titleAddBr(diarydata.title)
+            // let title
+            // try{
+            //   title = _do.titleAddBr(diarydata.title)
+            // } catch{
+            //   alert('已经没有页数了')
+            // }
 
             if (Object.keys(res).length === 0||mydiaryarr.length==1) {
                 dom.navfooter.html(`
@@ -402,31 +411,31 @@ import {diary} from "../stroe.js";
                 `)
             }else {
                 res.diaryId = Math.floor(res.diaryId)
-                if(res.diaryId == 0 ) {
+                // if(res.diaryId == 0 ) {
+                //     dom.navfooter.html(`
+                // <ul class="actions">
+                //     <li><a href="index.html" class="button">&nbsp;&nbsp;Back&nbsp;&nbsp;</a></li>
+                //     <li><a href="generic.html#/?diaryId=${res.diaryId+1}&type=${res.type}" class="button">NEXT</a></li>
+                // </ul>
+                // `)
+                // } else if(res.diaryId+1 == mydiaryarr.length){
+                //     dom.navfooter.html(`
+                // <ul class="actions">
+                //     <li><a href="generic.html#/?diaryId=${res.diaryId-1}&type=${res.type}" class="button">PREV</a></li>
+                //     <!--<li><a href="#" class="button special">Special</a></li>-->
+                //     <li><a href="index.html" class="button">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
+                // </ul>
+                // `)
+                // }else {
                     dom.navfooter.html(`
                 <ul class="actions">
-                    <li><a href="index.html" class="button">&nbsp;&nbsp;Back&nbsp;&nbsp;</a></li>
-                    <li><a href="generic.html?diaryId=${res.diaryId+1}&type=${res.type}" class="button">NEXT</a></li>
-                </ul>
-                `)
-                } else if(res.diaryId+1 == mydiaryarr.length){
-                    dom.navfooter.html(`
-                <ul class="actions">
-                    <li><a href="generic.html?diaryId=${res.diaryId-1}&type=${res.type}" class="button">PREV</a></li>
+                    <li><a href="generic.html#/?diaryId=${res.diaryId-1}&type=${res.type}" class="button">PREV</a></li>
                     <!--<li><a href="#" class="button special">Special</a></li>-->
                     <li><a href="index.html" class="button">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
+                    <li><a href="generic.html#/?diaryId=${res.diaryId+1}&type=${res.type}" class="button">NEXT</a></li>
                 </ul>
                 `)
-                }else {
-                    dom.navfooter.html(`
-                <ul class="actions">
-                    <li><a href="generic.html?diaryId=${res.diaryId-1}&type=${res.type}" class="button">PREV</a></li>
-                    <!--<li><a href="#" class="button special">Special</a></li>-->
-                    <li><a href="index.html" class="button">&nbsp;&nbsp;__Back__&nbsp;&nbsp;</a></li>
-                    <li><a href="generic.html?diaryId=${res.diaryId+1}&type=${res.type}" class="button">NEXT</a></li>
-                </ul>
-                `)
-                }
+                // }
 
             }
             let imgsrc
@@ -482,8 +491,6 @@ import {diary} from "../stroe.js";
                 }
             })
         }
-
-
     }
 
 
@@ -491,20 +498,25 @@ import {diary} from "../stroe.js";
         {
             dom.year.on('click', (e) => {
                 var diaryName = $(e.target).text()
-                _do.mediator.changedData(diaryName)
+                _do.mediator.changedData('Y'+diaryName)
             })
         }
         {
             window.onGoDiary = function () {
                 console.log(arguments[0]);
 
-                let url = `generic.html?diaryId=${data.diary[arguments[0]].diaryId}&type=${data.type}&image=${arguments[1]}`;//此处拼接内容
+                let url = `generic.html#/?diaryId=${data.diary[arguments[0]].diaryId}&type=${data.type}&image=${arguments[1]}`;//此处拼接内容
                 window.location.href = url;
+
+                //需要更换成走缓存
             }
         }
     }
 
 
     init()
+    window.addEventListener('hashchange',function name(params) {
+      init()
+    })
 
 }($, diary, window))
